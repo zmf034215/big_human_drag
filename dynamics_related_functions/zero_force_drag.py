@@ -78,9 +78,9 @@ class Zero_Force_Drag:
                 print("力矩模式-零力拖动！")
                 self.dynamic_model_arm_torq = self.dynamic_model.dynamic_cal(self.actual_position[:14], self.actual_speed[:14], self.actual_acc[:14])
 
-                self.actual_jointTorqueVec[:14] = np.array(self.pre_actual_torq[:14]) * (1 - self.alpha) + ( self.alpha * self.dynamic_model_arm_torq[:14])
+                # self.actual_jointTorqueVec[:14] = np.array(self.pre_actual_torq[:14]) * (1 - self.alpha) + ( self.alpha * self.dynamic_model_arm_torq[:14])
 
-                self.actual_jointTorqueVec[:14] = (np.array(self.actual_jointTorqueVec[:14]) * (self.k_dyn_l_arm + self.k_dyn_r_arm)).tolist()
+                # self.actual_jointTorqueVec[:14] = (np.array(self.actual_jointTorqueVec[:14]) * (self.k_dyn_l_arm + self.k_dyn_r_arm)).tolist()
 
                 self.lcm_handler.upper_body_data_publisher_torque_mode(self.actual_jointTorqueVec)
 
